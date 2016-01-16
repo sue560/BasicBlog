@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
 
-  resources :comments
-  resources :comments
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   get 'welcome/index'
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'posts#index'
+
+  delete '/posts/:post_id/comments' => 'comments#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
