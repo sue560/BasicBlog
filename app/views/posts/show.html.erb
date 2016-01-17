@@ -10,6 +10,11 @@
   <%= @post.body %>
 </p>
 
+
+
+<h2>Comments</h2>
+<%= render @post.comments %>
+
 <h2>Add a comment:</h2>
 <%= form_for([@post, @post.comments.build]) do |f| %>
   <p>
@@ -24,11 +29,6 @@
     <%= f.submit %>
   </p>
 <% end %>
-
-<h2>Comments</h2>
-<%= render @post.comments %>
-
- 
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
