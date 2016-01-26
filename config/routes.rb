@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :users
+  
   resources :posts do
     resources :comments
   end
@@ -10,6 +12,11 @@ Rails.application.routes.draw do
   get 'welcome/index'
   # You can have the root of your site routed with "root"
   root 'posts#index'
+
+  get 'imageuploader/index'
+  get 'imageuploader/new'
+  get 'imageuploader/create'
+  get 'imageuploader/destroy'
 
   delete '/posts/:post_id/comments' => 'comments#destroy'
 
