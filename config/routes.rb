@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :tags
   resources :users
   
@@ -7,12 +8,13 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+get '/users/sign_up'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   get 'welcome/index'
   # You can have the root of your site routed with "root"
-  root 'posts#index'
+  root 'welcome#index'
 
   get 'imageuploader/index'
   get 'imageuploader/new'
