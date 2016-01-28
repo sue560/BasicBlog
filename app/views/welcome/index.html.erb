@@ -1,3 +1,16 @@
 
 <h1>Welcome to the Basic Blog</h1>
+
+<nav>
+  <div class="login">
+    <% if user_signed_in? %>
+      <%= link_to "Log out", destroy_user_session_path, method: delete %>
+      <% else %>
+      <%= link_to 'Sign-In', new_user_session_path %>
+
+      <!-- is there a form to sign in?? -->
+    <% end %>
+  </div>
+</nav>
+
 <p><%= link_to 'Start reading!', controller: 'posts' %></p>

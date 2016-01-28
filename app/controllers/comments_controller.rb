@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  http_basic_authenticate_with name: "Bomberbot", password: "Bomberbot2015", only: :destroy
   before_action :set_comment, only: [:show, :destroy]
 
   # GET /comments

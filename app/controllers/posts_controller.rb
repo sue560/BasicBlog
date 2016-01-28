@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  http_basic_authenticate_with name: "Bomberbot", password: "Bomberbot2016", except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts

@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+ nav {
+  background-color: blue;
+  max-width: 100%;
+  color: white;
+ }
+
+ .login {
+  float: right;
+ }
+
+ .login a:hover {
+  color: gray;
+ }
