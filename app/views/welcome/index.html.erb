@@ -1,18 +1,31 @@
 
-<h1>Welcome to the Basic Blog</h1>
+<h1 align="center">Welcome to the Blog</h1>
 
 <% yield %>
-
+<!-- 
 <nav>
   <div class="login">
     <% if user_signed_in? %>
-      <%= link_to "Log out", destroy_user_session_path, method: delete %>
+      <%= link_to "Log out", destroy_user_session_path %>
       <% else %>
       <%= link_to 'Sign-In', new_user_session_path %>
-
-      <!-- is there a form to sign in?? -->
     <% end %>
   </div>
-</nav>
+</nav> -->
 
-<p><%= link_to 'Start reading!', controller: 'posts' %></p>
+
+
+
+<div class="flex-table">
+  <div class="database_table_body">
+    <% @posts.each do |post| %>
+     <%= div_for post, :class => "large_rowBox" do %>
+      <div id="post_image">
+        <div class="post_image"><%= image_tag(post.image_url, width:90, height:70) %>
+        </div>
+      <% end %>
+    </div>
+      <% end %>
+    </div>
+  </div>
+ 

@@ -9,23 +9,18 @@
 <body>
 <!-- <div class="flex-table"> -->
 
- <% if user_signed_in? %>
-​
-     <div id="logout">
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </div>
-
-    <% else %>
-​
-   <div id="login">
+<nav>
+   <% if user_signed_in? %>
+    <%= link_to 'My Posts', controller: 'posts' %> 
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %> 
+  <% else %>
     <%= link_to 'Sign in', new_user_session_path %>
-    </div>
-​
-   <% end %>
+  <% end %>
+</nav>
 
-    <div id="register">
+  <!--   <div id="register">
     <%= link_to 'Sign up', new_user_registration_path %>
-    </div>
+    </div> -->
 
 <%= yield %>
 

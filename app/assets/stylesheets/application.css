@@ -14,16 +14,25 @@
  *= require_self
  */
 
+body {
+  margin: 0;
+}
+
+a {
+  color: black;
+}
+
  nav {
-  background-color: blue;
+  background-color: gray;
   max-width: 100%;
+  color: white;
+  text-align: right;
+  height: 20px;
+  padding: 10px;
+ }
+
+ nav a, nav a:visited {
   color: white;
  }
 
- .login {
-  float: right;
- }
 
- .login a:hover {
-  color: gray;
- }
