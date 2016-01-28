@@ -7,8 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="flex-table">
+<!-- <div class="flex-table"> -->
 
+ <% if user_signed_in? %>
+​
+     <div id="logout">
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      </div>
+    <% else %>
+​
+    <div id="register">
+    <%= link_to 'Sign up', new_user_registration_path %>
+    </div>
+​
+   <div id="login">
+    <%= link_to 'Sign in', new_user_session_path %>
+    </div>
+​
+   <% end %>
 
 
 </body>
