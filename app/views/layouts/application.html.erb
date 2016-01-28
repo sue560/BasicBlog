@@ -14,11 +14,8 @@
      <div id="logout">
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </div>
+
     <% else %>
-​
-    <div id="register">
-    <%= link_to 'Sign up', new_user_registration_path %>
-    </div>
 ​
    <div id="login">
     <%= link_to 'Sign in', new_user_session_path %>
@@ -26,6 +23,11 @@
 ​
    <% end %>
 
+    <div id="register">
+    <%= link_to 'Sign up', new_user_registration_path %>
+    </div>
+
+<%= yield %>
 
 </body>
 </html>
