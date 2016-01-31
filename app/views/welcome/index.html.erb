@@ -14,14 +14,21 @@
 </nav> -->
 
 
-
-
 <div class="flex-table">
   <div class="database_table_body">
     <% @posts.each do |post| %>
      <%= div_for post, :class => "large_rowBox" do %>
-      <div id="post_image">
-        <div class="post_image"><%= image_tag(post.image_url, width:90, height:70) %>
+        <div class="post_image">
+          <%= image_tag(post.image_url, width:90, height:70) %>
+        </div>
+        <div class="post_title">
+          <%= post.title %>
+        </div>
+        <div class="post_body">
+          <%= post.body %>
+        </div>
+          <div class="post_author">
+          By: <%= post.user_id %>
         </div>
       <% end %>
     </div>
