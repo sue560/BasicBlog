@@ -23,9 +23,10 @@
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </div>
-    <div class="tag">
-    <%= f.label :tag %><br>
-    <%= f.text_field :tag %>
+    <div class="category">
+    <%= f.label :category %><br>
+    <%= f.select :tag, ['Finland', 'Netherlands', 'UK']%>
+<!--     <%= f.text_field :tag %> -->
   </div>
   <div class="actions">
     <%= f.submit %>

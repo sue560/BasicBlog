@@ -3,4 +3,6 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   validates :title, presence: true, length: { minimum: 5 }
   mount_uploader :image, ImageUploader
+  validates :tag, inclusion: { in: %w(Finland Netherlands UK),
+    message: "%{value} is not a valid country" }
 end

@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<div class="user" align="center">
+  <h1>
+    <%= @user.name %>
+  </h1>
+  <p>
+    <strong>Email</strong>
+    <%= @user.email %>
+  </p>
+  <p>
+    <strong>My Posts</strong>
+    <p>
+<% @user.posts.each do |post| %>
+   <%= post.title %> <br/>
+   <%= post.created_at %>
+<% end %>
+  </p>
+</div>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', user_path %>

@@ -6,7 +6,15 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     # @posts = Post.all
-    @posts = current_user.posts
+    # @posts = current_user.posts
+
+    @user = current_user
+    
+    if params[:tag]
+      @posts = Post.where(:tag => params[:tag])
+    else
+      @posts = Post.all
+    end
   end
 
   # GET /posts/1
