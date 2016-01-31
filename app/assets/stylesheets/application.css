@@ -18,21 +18,26 @@ body {
   margin: 0;
 }
 
-a {
-  color: black;
-}
-
- nav {
+nav {
   background-color: gray;
   max-width: 100%;
   color: white;
   text-align: right;
   height: 20px;
   padding: 10px;
+}
+
+nav a:visited {
+  color: #fff;
  }
 
- nav a, nav a:visited {
+.tag-link {
+  background-color: gray;
+  border-radius: 12px;
+  padding: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
   color: white;
- }
+}
 
 

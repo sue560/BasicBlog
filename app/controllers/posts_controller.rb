@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     # @posts = current_user.posts
 
     @user = current_user
-    
+
     if params[:tag]
       @posts = Post.where(:tag => params[:tag])
     else

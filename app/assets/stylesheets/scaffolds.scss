@@ -21,9 +21,7 @@ pre {
 a {
   color: #000;
 
-  &:visited {
-    color: #666;
-  }
+  text-decoration: none;
 
   &:hover {
     color: #000;

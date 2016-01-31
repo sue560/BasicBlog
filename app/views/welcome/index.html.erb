@@ -3,32 +3,42 @@
 
 <% yield %>
 
-<div align="center">
-  <%= link_to "Finland", posts_path(:tag=>"Finland") %>
+<div align="center" class="countries">
+  <%= link_to "Finland", posts_path(:tag=>"Finland"), :class => 'tag-link' %>
+  <%= link_to "Netherlands", posts_path(:tag=>"Netherlands"), :class => 'tag-link' %>
+  <%= link_to "Great Britain", posts_path(:tag=>"UK"), :class => 'tag-link' %>
 </div>
 
 <div class="flex-table">
-  <div class="database_table_body">
     <% @posts.each do |post| %>
      <%= div_for post, :class => "large_rowBox" do %>
-        <div class="post_image">
-          <%= image_tag(post.image_url, width:90, height:70) %>
-        </div>
-        <div class="post_title">
-          <%= post.title %>
-        </div>
-        <div class="post_body">
-          <%= post.body %>
-        </div>
-        <div class="post_author">
-          By: <%= post.user.name %>
-        </div>
-        <div class="category">
-          Category: <%= post.tag %>
+        <div class="post-item">
+          <div class="post-image">
+            <%= image_tag(post.image_url, width:300, height:200) %>
+          </div>
+          <div class="post-text">
+            <div class="post-title">
+              <%= post.title %>
+            </div>
+            <div class="post-author">
+              <p>
+                By: <%= post.user.name %>
+              </p>
+            </div>
+            <div class="post-body">
+              <p>
+                <%= post.body %>
+            </p>
+            </div>
+            <div class="post-category">
+              Category: <%= post.tag %>
+            </div>
+          <!--end post text-->
+          </div>
+          <!--end post item-->
         </div>
       <% end %>
-    </div>
-      <% end %>
-    </div>
+      <!--end rowbox-->
+    <% end %>
   </div>
  
