@@ -1,13 +1,4 @@
-
-<h1 align="center">Blog Title</h1>
-
 <% yield %>
-
-<div align="center" class="countries">
-  <%= link_to "Finland", posts_path(:tag=>"Finland"), :class => 'tag-link' %>
-  <%= link_to "Netherlands", posts_path(:tag=>"Netherlands"), :class => 'tag-link' %>
-  <%= link_to "Great Britain", posts_path(:tag=>"UK"), :class => 'tag-link' %>
-</div>
 
 <div class="flex-table">
     <% @posts.each do |post| %>
@@ -21,18 +12,25 @@
               <%= post.title %>
             </div>
             <div class="post-author">
-              <p>
-                By: <%= post.user.name %>
-              </p>
+                <span>
+                  Last Updated on <%= post.updated_at.strftime("%b %e") %>
+                </span>
+                  by <%= post.user.name %>
             </div>
             <div class="post-body">
               <p>
-                <%= post.body %>
-            </p>
+                <%= post.body %>...
+              </p>
             </div>
-            <div class="post-category">
-              Category: <%= post.tag %>
+            <div class="read-more">
+              <p>
+              </p>
+            <%= link_to 'Read More', post %>
             </div>
+ <!--            <div class="post-category">
+              Tags: <%= post.tag %>
+            </div> -->
+  
           <!--end post text-->
           </div>
           <!--end post item-->

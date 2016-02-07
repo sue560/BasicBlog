@@ -15,5 +15,14 @@
   <%= @comment.post %>
 </p>
 
+
+<p class="check-appropriate">
+  Is this comment inappropriate?
+<p>
+  <%= link_to 'Remove', [comment.post, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>

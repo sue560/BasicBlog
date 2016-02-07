@@ -1,32 +1,47 @@
-<%= csrf_meta_tags %>
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Basic Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
 <!-- <div class="flex-table"> -->
 
 <nav>
-   <% if user_signed_in? %>
+  <div class="logo">
+     <%= link_to image_tag('headlogo.png', :class => 'robothead'), root_path %>
+     <%= link_to 'Blog', root_path, :id => 'blog' %>
+  </div>
+<!--   <div id="dropdown"> -->
+<!--     <select class="dropdown-items">
+      <option><%= link_to image_tag("finnish_flag.png", :class => 'tag-link'), posts_path(:tag=>"Finland") %></option>
+      <option><%= link_to image_tag("dutch_flag.png", :class => 'tag-link'), posts_path(:tag=>"Netherlands") %></option>
+      <option><%= link_to image_tag("UK_flag.png", :class => 'tag-link'), posts_path(:tag=>"UK") %></option>
+    </select>
+  </div> -->
+  <div class="navlinks">
+    <% if user_signed_in? %>
     <%= link_to 'My Posts', controller: 'posts' %> 
-    <%= link_to "view my profile", current_user %>
+    <%= link_to 'My Profile', current_user %>
     <%= link_to "Log out", destroy_user_session_path, method: :delete %>
    <!--   <%= link_to "Log out", destroy_user_session_path %>  -->
   <% else %>
     <%= link_to 'Sign in', new_user_session_path %>
   <% end %>
+  </div>
+  <%= link_to image_tag("finnish_flag.png", :class => 'tag-link'), posts_path(:tag=>"Finland") %>
+  <%= link_to image_tag("dutch_flag.png", :class => 'tag-link'), posts_path(:tag=>"Netherlands") %></option>
+  <%= link_to image_tag("UK_flag.png", :class => 'tag-link'), posts_path(:tag=>"UK") %></option>
 </nav>
-
-  <!--   <div id="register">
-    <%= link_to 'Sign up', new_user_registration_path %>
-    </div> -->
-
-<%= yield %>
+<div class="container">
+  <h1 align="center">The Latest Coding News by Bomberbot</h1>
+  <%= yield %>
+</div>
 
 </body>
 </html>
