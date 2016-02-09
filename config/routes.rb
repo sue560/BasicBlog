@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  get '/posts' => 'welcome#index'
+
   post '/users/sign_up' => 'users#new'
 
   # The priority is based upon order of creation: first created -> highest priority.

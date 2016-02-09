@@ -14,8 +14,6 @@
  *= require_self
  */
 
-*= require bootstrap
-
 html {
   padding: 0;
 }
@@ -133,6 +131,28 @@ nav a:visited {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  padding: 30px;
+}
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+textarea {
+  resize: none;
+  background-color: #606060;
+  color: white;
+  font-size: 16px;
+  border: none;
+}
+
+input#post_title {
+  resize: none;
+  background-color: #606060;
+  color: white;
+  font-size: 24px;
+  border: none;
 }
 /*
 #dropdown {
@@ -166,6 +186,7 @@ nav a:visited {
 
 .post-image {
   margin: 3%;
+  left: 0;
 }
 
 .post-text {
@@ -190,4 +211,8 @@ nav a:visited {
   font-weight: 400;
   color: #01af94;
   font-size: 16px;
+}
+
+.submit-button {
+  padding: 10px;
 }

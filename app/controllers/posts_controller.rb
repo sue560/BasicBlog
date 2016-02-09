@@ -11,10 +11,11 @@ class PostsController < ApplicationController
     @user = current_user
 
     if params[:tag]
-      @posts = Post.where(:tag => params[:tag])
+      @posts = Post.order(created_at: :desc).where(:tag => params[:tag])
     else
-      @posts = Post.all
+      @posts = Post.order(created_at: :desc)
     end
+
   end
 
   # GET /posts/1

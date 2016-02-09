@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
-gem 'twitter-bootstrap-rails', '~> 3.2', '>= 3.2.2'
+#gem 'twitter-bootstrap-rails', '~> 3.2', '>= 3.2.2'
 
 gem 'carrierwave'
 

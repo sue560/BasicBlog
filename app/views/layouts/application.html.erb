@@ -2,10 +2,10 @@
 <html>
 <head>
   <title>Basic Blog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
   <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
 </head>
@@ -17,13 +17,6 @@
      <%= link_to image_tag('headlogo.png', :class => 'robothead'), root_path %>
      <%= link_to 'Blog', root_path, :id => 'blog' %>
   </div>
-<!--   <div id="dropdown"> -->
-<!--     <select class="dropdown-items">
-      <option><%= link_to image_tag("finnish_flag.png", :class => 'tag-link'), posts_path(:tag=>"Finland") %></option>
-      <option><%= link_to image_tag("dutch_flag.png", :class => 'tag-link'), posts_path(:tag=>"Netherlands") %></option>
-      <option><%= link_to image_tag("UK_flag.png", :class => 'tag-link'), posts_path(:tag=>"UK") %></option>
-    </select>
-  </div> -->
   <div class="navlinks">
     <% if user_signed_in? %>
     <%= link_to 'My Posts', controller: 'posts' %> 
@@ -33,13 +26,14 @@
   <% else %>
     <%= link_to 'Sign in', new_user_session_path %>
   <% end %>
+
   </div>
-  <%= link_to image_tag("finnish_flag.png", :class => 'tag-link'), posts_path(:tag=>"Finland") %>
-  <%= link_to image_tag("dutch_flag.png", :class => 'tag-link'), posts_path(:tag=>"Netherlands") %></option>
-  <%= link_to image_tag("UK_flag.png", :class => 'tag-link'), posts_path(:tag=>"UK") %></option>
+  <%= link_to image_tag("finnish_flag.png", :class => 'tag-link'), root_path(:tag=>"Finland") %>
+  <%= link_to image_tag("dutch_flag.png", :class => 'tag-link'), root_path(:tag=>"Netherlands") %></option>
+  <%= link_to image_tag("UK_flag.png", :class => 'tag-link'), root_path(:tag=>"UK") %></option>
 </nav>
 <div class="container">
-  <h1 align="center">The Latest Coding News by Bomberbot</h1>
+  <h1 align="center">The Latest News from Bomberbot</h1>
   <%= yield %>
 </div>
 

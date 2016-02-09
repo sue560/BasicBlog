@@ -1,5 +1,13 @@
 <% yield %>
 
+<div class="search">
+  <%= form_tag(root_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+  <%= submit_tag "Search" %>
+</div>
+
+<% end %>
+
 <div class="flex-table">
     <% @posts.each do |post| %>
      <%= div_for post, :class => "large_rowBox" do %>
@@ -25,12 +33,11 @@
             <div class="read-more">
               <p>
               </p>
-            <%= link_to 'Read More', post %>
+            <span>
+              <%= image_tag(post.tag+".png") %>
+              <%= link_to 'Read More', post %>
+            </span>
             </div>
- <!--            <div class="post-category">
-              Tags: <%= post.tag %>
-            </div> -->
-  
           <!--end post text-->
           </div>
           <!--end post item-->

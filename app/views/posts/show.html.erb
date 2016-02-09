@@ -1,6 +1,6 @@
-<div class="container">
 <p id="notice"><%= notice %></p>
 
+<div class="container">
 <div class="post" align="center">
   <div class="post-image">
     <%= image_tag(@post.image_url) %>
@@ -9,21 +9,19 @@
     <%= @post.title %>
   </h1>
   <p>
-    <strong>Body:</strong>
     <%= @post.body %>
   </p>
     <p>
-    <strong>Category</strong>
+    <strong>Country:</strong>
     <%= @post.tag %>
   </p>
 
+
+<hr>
 <div id="comments">
   <h2><%= @post.comments.count %> Comments</h2>
 <%= render @post.comments %>
 </div>
-
-<hr>
-
 <div id="add-comments">
   <h3>Add a comment:</h3>
   <%= form_for([@post, @post.comments.build]) do |f| %>
