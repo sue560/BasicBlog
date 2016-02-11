@@ -26,6 +26,19 @@ body {
   font-weight: 300;
 }
 
+.button {
+  width: 80px;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+input.button {
+  border-radius: 5px;
+  border: 0 none;
+  box-shadow: none;
+}
+
 .container {
   display: block;
   margin-left: auto;
@@ -52,6 +65,11 @@ nav {
 .language-change {
   display: inline-block;
   float: right;
+}
+
+input.button {
+  background-color: #04ccaa;
+  width: 100px;
 }
 
 .logo {
@@ -85,6 +103,37 @@ nav {
   font-weight: 400;
   font-size: 18px;
   text-transform: uppercase;
+  float: right;
+}
+
+.flags {
+  float: right;
+  position: relative;
+  right: 10px;
+  left: 5px;
+  bottom: 5px;
+  text-decoration: none;
+}
+
+.tag-link {
+  margin: 0;
+}
+
+.search {
+  float: left;
+  display: inline-block;
+  position: relative;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+input#search {
+  height: 15px;
+  width: 200px;
+  border-radius: 5px;
+  border: none;
+  background-color: #333333;
+  padding: 10px;
 }
 
 .navlinks a {
@@ -100,7 +149,6 @@ nav {
 }
 
 .tag-link {
-  margin-top: 5px;
   width: 35px;
 }
 
@@ -154,30 +202,6 @@ input#post_title {
   font-size: 24px;
   border: none;
 }
-/*
-#dropdown {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 30px;
-  border-color: white;
-  background-color: #01af94;
-  border-radius: 8px;
- }
-
-.dropdown-items {
-  display: none;
-  background-color: #01af94;
-  padding: 0;
-  position: absolute;
-  margin: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  width: 50px;
-  padding: 5px;
-  height: 50px;
-   -webkit-appearance: none;
-}
-*/
 
 .post-item {
   margin-bottom: 2%;
@@ -185,26 +209,40 @@ input#post_title {
 }
 
 .post-image {
+  text-align: center;
+}
+
+.post-preview {
   margin: 3%;
-  left: 0;
 }
 
 .post-text {
-  padding: 3%;
-  max-width: 600px;
+  width: 610px;
   display: inline-block;
 }
 
 .post-title {
   font-size: 2em;
   margin-bottom: 10px;
+  line-height: 30px;
 }
 
-.post-body {
-  height: 100px;
+.post-tag {
+  float: right;
+}
+
+.new-post {
+  position: relative;
+  top: 0;
+  right: 10px;
+}
+textarea#post_body {
+  height: 200px;
+  width: 610px;
   overflow: hidden;
   margin-bottom: 10px;
   text-align: justify;
+  color: white;
 }
 
 .read-more {
@@ -216,3 +254,7 @@ input#post_title {
 .submit-button {
   padding: 10px;
 }
+
+
+
+

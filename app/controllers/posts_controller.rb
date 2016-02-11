@@ -15,7 +15,6 @@ class PostsController < ApplicationController
     else
       @posts = Post.order(created_at: :desc)
     end
-
   end
 
   # GET /posts/1
