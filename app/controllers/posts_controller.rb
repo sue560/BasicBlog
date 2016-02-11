@@ -1,10 +1,20 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    # @posts = Post.all
+    # @posts = current_user.posts
+
+    @user = current_user
+
+    if params[:tag]
+      @posts = Post.order(created_at: :desc).where(:tag => params[:tag])
+    else
+      @posts = Post.order(created_at: :desc)
+    end
   end
 
   # GET /posts/1
@@ -26,7 +36,8 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    @post.user_id = current_user.id
+    
     if @post.save
       redirect_to @post
     else
@@ -51,14 +62,14 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+
+    # @comment = Comment.find(params[:id])
+    # @comment.destroy
   end
 
   private
@@ -69,6 +80,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :image)
+      params.require(:post).permit(:title, :body, :image, :tag)
     end
 end

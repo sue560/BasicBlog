@@ -7,11 +7,3 @@
   <strong>Comment:</strong>
   <%= comment.body %>
 </p>
-
-<p class="check-appropriate">
-  Is this comment inappropriate?
-<p>
-  <%= link_to 'Remove', [comment.post, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>

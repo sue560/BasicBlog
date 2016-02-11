@@ -1,18 +1,30 @@
 Rails.application.routes.draw do
 
-  resources :tags
+  devise_scope :users do
+      get "sign_out", :to => "devise/sessions#destroy"
+  end
+  
+  devise_for :users do
+    delete '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
   resources :users
   
   resources :posts do
     resources :comments
   end
 
+  get '/posts' => 'welcome#index'
+
+  post '/users/sign_up' => 'users#new'
+
+  post '/users/sign_in' => 'posts#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get 'welcome/index'
   # You can have the root of your site routed with "root"
-  root 'posts#index'
+  root 'welcome#index'
 
   get 'imageuploader/index'
   get 'imageuploader/new'

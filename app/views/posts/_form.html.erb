@@ -1,3 +1,5 @@
+
+<div class="center-block">
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -13,16 +15,25 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, size: "50%" %>
   </div>
   <div class="field">
     <%= f.label :body %><br>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, size: "80%" %>
   </div>
   <div class="image">
     <%= f.label :image %><br>
     <%= f.file_field :image %>
+  </div>
+  <p>
+  </p>
+    <div class="category">
+    <%= f.label :category %><br>
+    <%= f.select :tag, ['Finland', 'Netherlands', 'UK']%>
+<!--     <%= f.text_field :tag %> -->
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>

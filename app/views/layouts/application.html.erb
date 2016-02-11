@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bblog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title>Basic Blog</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css' rel='stylesheet' type='text/css'>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- <div class="flex-table"> -->
 
-<%= yield %>
+<nav>
+  <div class="logo">
+     <%= link_to image_tag('headlogo.png', :class => 'robothead'), root_path %>
+     <%= link_to 'Blog', root_path, :id => 'blog' %>
+  </div>
+  <div class="navlinks">
+    <% if user_signed_in? %>
+    <%= link_to 'My Posts', controller: 'posts' %> 
+    <%= link_to 'My Profile', current_user %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+   <!--   <%= link_to "Log out", destroy_user_session_path %>  -->
+    <% else %>
+      <%= link_to 'My Posts', new_user_session_path %>
+    <% end %>
+    <div class="search">
+      <%= form_tag(root_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+        <%= submit_tag "Search", class: 'button', style: 'width: 100px; height: 35px;' %>
+      <% end %>
+    </div>
+    <div class="flags">
+    <%= link_to image_tag("finnish_flag.png", :class => 'tag-link'), root_path(:tag=>"Finland") %>
+    <%= link_to image_tag("dutch_flag.png", :class => 'tag-link'), root_path(:tag=>"Netherlands") %></option>
+    <%= link_to image_tag("UK_flag.png", :class => 'tag-link'), root_path(:tag=>"UK") %></option>
+    </div>
+  </div>
+</nav>
 
+<div class="container">
+  <h1 align="center">The Latest News from Bomberbot</h1>
+  <%= yield %>
+</div>
 </body>
 </html>
