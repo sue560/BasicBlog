@@ -152,6 +152,12 @@ input#search {
   width: 35px;
 }
 
+#add-comments {
+/*  background-color: #04ccaa;*/
+  padding: 10px;
+  max-width: 600px;
+}
+
 li {
   list-style-type: none;
 }
